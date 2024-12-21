@@ -1,0 +1,8 @@
+enum TICKET_STATUS_TYPE {
+    OPEN = 'OPEN',
+    CLOSED = 'CLOSED',
+    READ = 'READ',
+    FOLLOWINGUP = 'FOLLOWINGUP'
+}
+
+export default TICKET_STATUS_TYPE

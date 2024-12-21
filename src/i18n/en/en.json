@@ -1,0 +1,169 @@
+{
+    "topNavigation": {
+        "login": "",
+        "profile": "profile",
+        "personalProfile": "profile",
+        "legalProfile": "profile",
+        "support": "support",
+        "contracts": "contracts",
+        "contractDetail": "contract",
+        "accesses": "accesses",
+        "tickets": "ticket",
+        "createTicket": "ticket",
+        "ticketDetail": "ticket",
+        "updateTicket": "ticket",
+        "followingUpTicket": "ticket",
+        "notifications": "notifications",
+        "home": "afra system",
+        "notFound": "afra system"
+    },
+    "bottomNavigation": {
+        "profile": "profile",
+        "personalProfile": "profile",
+        "legalProfile": "profile",
+        "accesses": "accesses",
+        "tickets": "ticket",
+        "home": "home"
+    },
+    "loginPage": {
+        "logInToAfraSystem": "login afra system",
+        "enterMobile": "Please enter your mobile number",
+        "enterOtpCpde": "Please enter the OTP code",
+        "mobileNumber": "Mobile Number",
+        "getOtpCode": "Get OTP Code",
+        "confirm": "Confirm Code",
+        "enterCodeWhichWasSent": "Enter the code which has been sent.",
+        "editPhoneNumber": "Edit Phone Number",
+        "enterPhoneNumberToLogin": "Enter Phone Number To Login",
+        "didNotGetOtpCode": "Did not get code?",
+        "tillSendingOtpAgain": "untill get code again",
+        "sendingOtpAgain": "send again",
+        "cellphoneNumberFormatIsNotValid": "Invalid Phone Nmuber",
+        "wrongOtpCode": "Entered OTP Code Is Wrong.",
+        "loginFailed": "Login failed",
+        "otpSendAgainMsg": "otp code has been sent again"
+    },
+    "homePage": {
+        "widgetFetchingError": "error in fetching data, please try again",
+        "tryAgainBtn": "try again",
+        "contracts": "contracts",
+        "tickets": "tickets",
+        "accesses": "accesses",
+        "all": "all",
+        "contractFetchError": "error in fetching contracts data, please try again",
+        "ticketsFetchError": "error in fetching tickets data, please try again",
+        "accessesFetchError": "error in fetching accesses data, please try again",
+        "showAllAccesses": "show all accesses"
+    },
+    "profilePage": {
+        "name": "name",
+        "phoneNumber": "phone number",
+        "type": "ownership",
+        "bankAccountNumber": "bank account number",
+        "shabaCode": "shaba code",
+        "bankName": "bank name",
+        "NationalCode": "National Code",
+        "BirthDate": "Birth Date",
+        "EconomicCode": "Economic Code",
+        "NationalId": "National ID",
+        "EstablishmentDate": "Establishment Date",
+        "logOutOfAccount": "Logout",
+        "doYouWantToLogout": "Do you want to log out?",
+        "youLoggedOutSuccessfully": "You have logged out successfully!",
+        "logoutWasUnsuccessful": "logout was unsuccessful"
+    },
+    "contractPage": {
+        "activeContract": "active",
+        "expiredContract": "expired",
+        "contractNumberText": "contract nomber",
+        "activeContractTab": "active contracts",
+        "expiredContractTab": "expired contracts",
+        "remainsFromContracrDays": "from contract remains",
+        "days": "days",
+        "invalidContractInfo": "invalid contract info",
+        "loadingContracts": "Loading contracts ...",
+        "noContractFound": "no contracts found!",
+        "contractDetail": {
+            "contractLocationInfo": "contract location information",
+            "contractInfo": "contract information",
+            "paymentInfo": "payment information",
+            "paymentHistoryList": "payment history list",
+            "site": "site",
+            "address": "address",
+            "contractNumber": "contract number",
+            "contractStartDate": "contract start date",
+            "contractExpiratioDate": "contract expiration date",
+            "contractAmount": "contract amount",
+            "typeOfPayment": "type of contract payment",
+            "PaymentAmount": "payment amount",
+            "paymentsHistorySuccessBadge": "payed successfully",
+            "paymentsHistoryErrorBadge": "unsuccessful",
+            "paymentsHistoryPendingBadge": "pending to pay"
+        }
+    },
+    "accessesPage": {
+        "activeAccessTab": "active accesses",
+        "expiredAccessTab": "expired accesses",
+        "entrance": "entrance",
+        "exit": "exit",
+        "numberOfPersons": "تعداد نفرات",
+        "explanation": "description",
+        "firstEnterance": "first enterance",
+        "lastExit": "last exit",
+        "time": "at",
+        "loadingAccesses": "loading accesses ...",
+        "noAccssesFound": "no access found!"
+    },
+    "ticketsPage": {
+        "OPENTicketTab": "open",
+        "CLOSEDTicketTab": "closed",
+        "FOLLOWINGUPTicketTab": "following-up",
+        "READTicketTab": "read",
+        "ticket": "ticket",
+        "newTicket": "new ticket",
+        "noTicketsFound": "no tickets found!",
+        "loadingTickets": "loading tickets ...",
+        "ticketDetail": {
+            "attachedImages": "attached photos",
+            "explanation": "explanation",
+            "supportResponse": "support response",
+            "delete": "delete",
+            "edit": "edit",
+            "continueFollowing": "continue following up",
+            "confirm": "confirm",
+            "deletingTicketWasUnsuccessfull": "deleting ticket was unsuccessful, please try again.",
+            "doYouWantToDeleteThisTicket": "do you want to delete this ticket?",
+            "ticketDeletedSuccessfully": "ticket has been deleted successfully"
+        },
+        "updateTicket": {
+            "confirm": "تایید",
+            "cancel": "انصراف",
+            "subject": "موضوع",
+            "explanation": "توضیحات",
+            "subjectCannotBeEmpty": "موضوع نمی تواند خالی باشد.",
+            "attachAtMostThreeImages": "ضمیمه کردن عکس (می‌توانید 3 عکس ضمیمه کنید)"
+        },
+        "followingUpTicket": {
+            "followingUpTextCannotBeEmpty": "متن پیگیری نمیتواند خالی باشد.",
+            "send": "ارسال"
+        }
+    },
+    "notificationsPage": {
+        "thereIsNoNotification": "no notifications!"
+    },
+    "form": {
+        "error": {
+            "required": "field is required",
+            "formNotValid": "please complete the form",
+            "fileSizeIsInvalid": "image size is more than 3.5 MB",
+            "dataFetchingError": "error in fetching data, please try again",
+            "tryAgainBtn": "Please try again"
+        },
+        "btns": {
+            "submit": "submit",
+            "cancel": "cancel",
+            "exit": "logout",
+            "confirm": "yes"
+        }
+    }
+}

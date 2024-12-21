@@ -1,0 +1,6 @@
+enum LOGIN_PAGE_VIEW_STATUS {
+    CELL_PHONE = 'CELL_PHONE',
+    OTP = 'OTP'
+}
+
+export default LOGIN_PAGE_VIEW_STATUS

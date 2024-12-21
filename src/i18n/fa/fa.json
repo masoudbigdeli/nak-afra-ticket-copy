@@ -1,0 +1,191 @@
+{
+    "topNavigation": {
+        "login": "",
+        "profile": "پروفایل",
+        "personalProfile": "پروفایل",
+        "legalProfile": "پروفایل",
+        "support": "پشتیبانی",
+        "contracts": "قراردادها",
+        "contractDetail": "قرارداد",
+        "accesses": "مجوزها",
+        "tickets": "تیکت",
+        "createTicket": "تیکت",
+        "ticketDetail": "تیکت",
+        "updateTicket": "تیکت",
+        "followingUpTicket": "تیکت",
+        "notifications": "پیام ها",
+        "home": "سامانه افرا",
+        "notFound": "سامانه افرا"
+    },
+    "bottomNavigation": {
+        "profile": "پروفایل",
+        "personalProfile": "پروفایل",
+        "legalProfile": "پروفایل",
+        "accesses": "مجوزها",
+        "tickets": "تیکت",
+        "home": "خانه"
+    },
+    "loader": {
+        "loaderText-1": "لطفا اندکی صبر کنید"
+    },
+    "loginPage": {
+        "logInToAfraSystem": "ورود به سامانه افرا",
+        "enterMobile": "شماره موبایل خود را وارد نمایید.",
+        "enterOtpCpde": "کد تایید را وارد نمایید.",
+        "mobileNumber": "شماره موبایل",
+        "getOtpCode": "دریافت کد",
+        "confirm": "تایید",
+        "enterCodeWhichWasSent": "کد تایید ارسال شده را وارد کنید.",
+        "editPhoneNumber": "ویرایش شماره",
+        "enterPhoneNumberToLogin": "برای ورود شماره موبایل خود را وارد کنید.",
+        "didNotGetOtpCode": "کد را دریافت نکردید؟",
+        "tillSendingOtpAgain": "تا ارسال مجدد کد",
+        "sendingOtpAgain": "ارسال مجدد کد",
+        "cellphoneNumberFormatIsNotValid": "شماره وارد شده صحیح نمی باشد.",
+        "wrongOtpCode": "کد وارد شده اشتباه است.",
+        "loginFailed": "مشکل در ورود به سیستم",
+        "otpSendAgainMsg": "کد یکبار مصرف مجددا ارسال شد."
+    },
+    "homePage": {
+        "widgetFetchingError": "خطا در فراخوانی اطلاعات، لطفا مجددا تلاش نمایید.",
+        "tryAgainBtn": "تلاش مجدد",
+        "contracts": "قراردادها",
+        "tickets": "تیکت ها",
+        "accesses": "مجوزها",
+        "all": "همه",
+        "contractFetchError": "خطا در فراخوانی لیست قراردادها، لطفا مجددا تلاش نمایید.",
+        "ticketsFetchError": "خطا در فراخوانی لیست تیکت ها، لطفا مجددا تلاش نمایید.",
+        "accessesFetchError": "خطا در فراخوانی لیست مجوزها، لطفا مجددا تلاش نمایید.",
+        "showAllAccesses": "نمایش بیشتر مجوزها"
+    },
+    "profilePage": {
+        "information": "اطلاعات",
+        "legal": "حقوقی",
+        "personal": "شخصی",
+        "details": "جزئیات",
+        "contracts": "قراردادها",
+        "showContracts": "نمایش قراردادها",
+        "support": "پشتیبانی",
+        "callSupport": "تماس با پشتیبانی",
+        "name": "نام و نام خانوادگی",
+        "phoneNumber": "شماره موبایل",
+        "type": "مالکیت",
+        "bankAccountNumber": "شماره حساب",
+        "shabaCode": "شماره شبا",
+        "bankName": "نام بانک",
+        "NationalCode": "کد ملی",
+        "BirthDate": "تاریخ تولد",
+        "EconomicCode": "کد اقتصادی",
+        "NationalId": "شناسه ملی",
+        "EstablishmentDate": "تاریخ احداث",
+        "logOutOfAccount": "خروج از حساب کاربری",
+        "doYouWantToLogout": "آیا می‌خواهید از حساب کاربری خارج شوید؟",
+        "youLoggedOutSuccessfully": "با موفقیت خارج شدید.",
+        "logoutWasUnsuccessful": "خروج ناموفق بود"
+    },
+    "supportPage": {
+        "address": "آدرس",
+        "supportPhoneNumber": "شماره تماس پشتیبانی",
+        "email": "ایمیل",
+        "supportPageDataFetchError": "مشکل در بارگذاری اطلاعات صفحه"
+    },
+    "contractPage": {
+        "contractListFetchFailed": "خطا در نمایش لیست قراردادها",
+        "contractDetailFetchFailed": "خطا در نمایش جزئیات قرارداد",
+        "activeContract": "فعال",
+        "expiredContract": "پایان یافته",
+        "contractNumberText": "قرارداد شماره",
+        "activeContractTab": "قراردادهای فعال",
+        "expiredContractTab": "قراردادهای اتمام یافته",
+        "remainsFromContracrDays": "از قرارداد باقی مانده است.",
+        "showDetails": "نمایش جزئیات",
+        "days": "روز",
+        "invalidContractInfo": "اطلاعات قرارداد معتبر نمی باشد",
+        "loadingContracts": "در حال دریافت قراردادها ...",
+        "noContractFound": "قراردادی یافت نشد!",
+        "contractDetail": {
+            "contractLocationInfo": "اطلاعات محل قرارداد",
+            "contractInfo": "اطلاعات قرارداد",
+            "paymentInfo": "اطلاعات پرداخت",
+            "paymentHistoryList": "لیست سوابق پرداخت",
+            "site": "سایت",
+            "address": "آدرس",
+            "contractNumber": "شماره قرارداد",
+            "contractStartDate": "تاریخ شروع قرارداد",
+            "contractExpiratioDate": "تاریخ پایان قرارداد",
+            "contractAmount": "مبلغ قرارداد",
+            "typeOfPayment": "نوع پرداخت قرارداد",
+            "PaymentAmount": "مبلغ پرداختی",
+            "paymentsHistorySuccessBadge": "پرداخت موفق",
+            "paymentsHistoryPendingBadge": "در انتظار پرداخت",
+            "paymentsHistoryErrorBadge": "ناموفق",
+            "IranToomanCurrency": "تومان"
+        }
+    },
+    "accessesPage": {
+        "activeAccessesTab": "مجوزهای در جریان",
+        "expiredAccessesTab": "مجوزهای گذشته",
+        "entrance": "ورود",
+        "exit": "خروج",
+        "numberOfPersons": "تعداد نفرات",
+        "explanation": "توضیحات",
+        "firstEnterance": "اولین ورود",
+        "lastExit": "آخرین خروج",
+        "time": "ساعت",
+        "loadingAccesses": "در حال دریافت مجوزها ...",
+        "noAccssesFound": "مجوزی یافت نشد!"
+    },
+    "ticketsPage": {
+        "OPENTicketTab": "باز",
+        "CLOSEDTicketTab": "بسته",
+        "FOLLOWINGUPTicketTab": "درحال پیگیری",
+        "READTicketTab": "خوانده شده",
+        "ticket": "تیکت",
+        "newTicket": "تیکت جدید",
+        "noTicketsFound": "تیکتی یافت نشد!",
+        "loadingTickets": "درحال دریافت تیکت ها...",
+        "ticketDetail": {
+            "attachedImages": "عکسهای ضمیمه",
+            "explanation": "توضیحات",
+            "supportResponse": "پاسخ کارشناس",
+            "delete": "حذف",
+            "edit": "ویرایش",
+            "continueFollowing": "ادامه پیگیری",
+            "confirm": "تایید",
+            "deletingTicketWasUnsuccessfull": "حذف تیکت با خطا مواجه شد، لطفا مجددا تلاش نمایید.",
+            "doYouWantToDeleteThisTicket": "آیا می‌خواهید این تیکت را حذف کنید؟",
+            "ticketDeletedSuccessfully": "تیکت با موفقیت حذف گردید."
+        },
+        "updateTicket": {
+            "confirm": "تایید",
+            "cancel": "انصراف",
+            "subject": "موضوع",
+            "explanation": "توضیحات",
+            "subjectCannotBeEmpty": "موضوع نمی تواند خالی باشد.",
+            "attachAtMostThreeImages": "ضمیمه کردن عکس (می‌توانید 3 عکس ضمیمه کنید)"
+        },
+        "followingUpTicket": {
+            "followingUpTextCannotBeEmpty": "متن پیگیری نمیتواند خالی باشد.",
+            "send": "ارسال"
+        }
+    },
+    "notificationsPage": {
+        "thereIsNoNotification": "پیامی موجود نیست!"
+    },
+    "form": {
+        "error": {
+            "required": "فیلد الزامیست",
+            "formNotValid": "اطلاعات فرم کامل نیست",
+            "fileSizeIsInvalid": "حجم تصویر بیش از ۳.۵ مگابایت است",
+            "dataFetchingError": "خطا در فراخوانی اطلاعات، لطفا مجددا تلاش نمایید.",
+            "tryAgainBtn": "تلاش مجدد"
+        },
+        "btns": {
+            "submit": "ارسال",
+            "cancel": "انصراف",
+            "exit": "خروج",
+            "confirm": "تایید"
+
+        }
+    }
+}

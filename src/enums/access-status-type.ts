@@ -1,0 +1,6 @@
+enum ACCESS_STATUS_TYPE {
+    ACTIVE = 'ACTIVE',
+    EXPIRED = 'EXPIRED',
+}
+
+export default ACCESS_STATUS_TYPE

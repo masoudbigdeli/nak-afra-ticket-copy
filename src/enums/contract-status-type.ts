@@ -1,0 +1,7 @@
+enum CONTRACT_STATUS_TYPE {
+    ACTIVE = 'ACTIVE',
+    EXPIRED = 'EXPIRED',
+}
+
+export default CONTRACT_STATUS_TYPE
+
