@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "nakAfra.vercel",
+  "applicationId": "localhost_3000.twa",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 2,
-      "versionName": "first-version",
+      "versionCode": 1,
+      "versionName": "1",
       "outputFile": "app-release-unsigned.apk"
     }
   ],

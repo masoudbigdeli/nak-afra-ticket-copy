@@ -1353,15 +1353,18 @@ com.google.androidbrowserhelper.trusted.splashscreens.SplashImageTransferTask:
     private static final java.lang.String PREF_LAST_UPDATE_TIME
     private static final java.lang.String TAG
 com.google.common.util.concurrent.ListenableFuture
-nakAfra.vercel.R$bool
-nakAfra.vercel.R$color
-nakAfra.vercel.R$drawable
-nakAfra.vercel.R$integer
-nakAfra.vercel.R$mipmap
-nakAfra.vercel.R$raw
-nakAfra.vercel.R$string
-nakAfra.vercel.R$xml
-nakAfra.vercel.R
+localhost_3000.twa.R$bool
+localhost_3000.twa.R$color
+localhost_3000.twa.R$drawable
+localhost_3000.twa.R$integer
+localhost_3000.twa.R$mipmap
+localhost_3000.twa.R$raw
+localhost_3000.twa.R$string
+localhost_3000.twa.R$xml
+localhost_3000.twa.R
+nakAfra.vercel.Application
+nakAfra.vercel.DelegationService
+nakAfra.vercel.LauncherActivity
 androidx.core.app.ActivityCompat$$InternalSyntheticThrowCCEIfNotNull$8$87f5f3ee39a507a821c0cac2c41ae97972cc2fd75bcf9c839fb098eb6d4675fb$0
 androidx.core.app.ActivityCompat$1$$InternalSyntheticThrowCCEIfNotNull$8$a4650200ea34729841d2251593f2c5754b8e758eca88770c25593bc1ba2598de$0
 androidx.core.app.ActivityCompat$1

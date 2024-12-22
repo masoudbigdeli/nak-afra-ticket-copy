@@ -17,7 +17,7 @@
         \"relation\": [\"delegate_permission/common.handle_all_urls\"],
         \"target\": {
             \"namespace\": \"web\",
-            \"site\": \"https://nak-afra-ticket-copy.vercel.app\"
+            \"site\": \"https://nak-afra-ticket-copy.vercel.app/\"
         }
     }]
     
@@ -25,10 +25,10 @@
     <string name="fallbackType" translatable="false">customtabs</string>
     <string name="fullScopeUrl" translatable="false">http://localhost:3000/</string>
     <string name="generatorApp" translatable="false">bubblewrap-cli</string>
-    <string name="hostName" translatable="false">nak-afra-ticket-copy.vercel.app</string>
-    <string name="launchUrl" translatable="false">https://nak-afra-ticket-copy.vercel.app/</string>
+    <string name="hostName" translatable="false">nak-afra-ticket-copy.vercel.app/</string>
+    <string name="launchUrl" translatable="false">https://nak-afra-ticket-copy.vercel.app//</string>
     <string name="launcherName" translatable="false">NAK Afra</string>
     <string name="orientation" translatable="false">portrait-primary</string>
-    <string name="providerAuthority" translatable="false">nakAfra.vercel.fileprovider</string>
+    <string name="providerAuthority" translatable="false">localhost_3000.twa.fileprovider</string>
     <string name="webManifestUrl" translatable="false">http://localhost:3000/manifest.json</string>
 </resources>

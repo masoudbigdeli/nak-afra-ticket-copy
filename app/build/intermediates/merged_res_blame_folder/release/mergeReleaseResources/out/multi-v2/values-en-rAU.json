@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "nakAfra.vercel.app-mergeReleaseResources-5:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "localhost_3000.twa.app-mergeReleaseResources-5:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "/home/code-wizard/.gradle/caches/8.8/transforms/2144911bb09dce3a07f407e3b390637e/transformed/core-1.1.0/res/values-en-rAU/values-en-rAU.xml",

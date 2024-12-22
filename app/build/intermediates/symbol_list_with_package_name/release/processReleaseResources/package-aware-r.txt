@@ -1,4 +1,4 @@
-nakAfra.vercel
+localhost_3000.twa
 attr alpha
 attr font
 attr fontProviderAuthority

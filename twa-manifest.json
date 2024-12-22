@@ -1,6 +1,6 @@
 {
-  "packageId": "nakAfra.vercel",
-  "host": "nak-afra-ticket-copy.vercel.app",
+  "packageId": "localhost_3000.twa",
+  "host": "nak-afra-ticket-copy.vercel.app/",
   "name": "NAK Afra",
   "launcherName": "NAK Afra",
   "display": "standalone",
@@ -19,13 +19,13 @@
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "/home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/android.keystore",
-    "alias": "nakAfra-key-android"
+    "alias": "android"
   },
-  "appVersionName": "first-version",
-  "appVersionCode": 2,
+  "appVersionName": "1",
+  "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "nak-afra-ticket-copy.vercel.app/manifest.json",
+  "webManifestUrl": "http://localhost:3000/manifest.json",
   "fallbackType": "customtabs",
   "features": {},
   "alphaDependencies": {
@@ -34,11 +34,11 @@
   "enableSiteSettingsShortcut": true,
   "isChromeOSOnly": false,
   "isMetaQuest": false,
-  "fullScopeUrl": "nak-afra-ticket-copy.vercel.app",
+  "fullScopeUrl": "http://localhost:3000/",
   "minSdkVersion": 21,
   "orientation": "portrait-primary",
   "fingerprints": [],
   "additionalTrustedOrigins": [],
   "retainedBundles": [],
-  "appVersion": "first-version"
+  "appVersion": "1"
 }

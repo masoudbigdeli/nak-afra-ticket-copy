@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "nakAfra.vercel.app-mergeReleaseResources-5:/values-da/values-da.xml",
+            "outputFile": "localhost_3000.twa.app-mergeReleaseResources-5:/values-da/values-da.xml",
             "map": [
                 {
                     "source": "/home/code-wizard/.gradle/caches/8.8/transforms/b511174c15fdde7dea3e957094b4390b/transformed/browser-1.4.0/res/values-da/values-da.xml",

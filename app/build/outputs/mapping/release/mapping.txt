@@ -3,8 +3,8 @@
 # min_api: 21
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: 2eb36b2
-# pg_map_hash: SHA-256 2eb36b2c4b50356ac4b24174ff0add2bf1a231f8768f841d751e426e7b241f26
+# pg_map_id: 53fefd7
+# pg_map_hash: SHA-256 53fefd760b42468acb2cf208b514b674559308789df906a3d4bd6b4f9d4b8982
 android.support.customtabs.ICustomTabsCallback -> a.a:
 # {"id":"sourceFile","fileName":"ICustomTabsCallback.java"}
     void onPostMessage(java.lang.String,android.os.Bundle) -> c
@@ -1740,10 +1740,10 @@ com.google.androidbrowserhelper.trusted.splashscreens.SystemBarColorPredictor$Su
     1:1:void <init>(boolean,boolean):0:0 -> <init>
     2:2:void <init>(boolean,boolean,com.google.androidbrowserhelper.trusted.splashscreens.SystemBarColorPredictor$1):0:0 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(ZZLo/f$a;)V"}
-nakAfra.vercel.Application -> nakAfra.vercel.Application:
+localhost_3000.twa.Application -> localhost_3000.twa.Application:
 # {"id":"sourceFile","fileName":"Application.java"}
-nakAfra.vercel.DelegationService -> nakAfra.vercel.DelegationService:
+localhost_3000.twa.DelegationService -> localhost_3000.twa.DelegationService:
 # {"id":"sourceFile","fileName":"DelegationService.java"}
-nakAfra.vercel.LauncherActivity -> nakAfra.vercel.LauncherActivity:
+localhost_3000.twa.LauncherActivity -> localhost_3000.twa.LauncherActivity:
 # {"id":"sourceFile","fileName":"LauncherActivity.java"}
     1:1:android.net.Uri getLaunchingUrl():0:0 -> h
