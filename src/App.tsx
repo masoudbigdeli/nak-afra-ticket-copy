@@ -24,7 +24,7 @@ const App: FC = () => {
               key={path}
               path={path}
               element={
-                <Suspense fallback={<FallbackLoading />}>
+                <Suspense fallback={<></>}>
                   <Layout>
                     <Cmp />
                   </Layout>
