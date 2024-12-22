@@ -59,7 +59,6 @@ const Input = <EntityModel extends Record<string, any>>({
                     hasResetter={!!(Resetter)}
                     dir={dir}
                     placeholder=' '
-                    inputMode={(type && type === 'number') ? 'numeric' : undefined}
                     onKeyDown={(type && type === 'number')
                         ? (event: KeyboardEvent<HTMLInputElement>) => ["e", "E", "+", "-"].includes(event.key) && event.preventDefault()
                         : undefined
@@ -101,8 +100,8 @@ const Input = <EntityModel extends Record<string, any>>({
                         : null
                 }
             </InputWrapper>
-            {Error && <Error name={name} data={data} fontSize='0.75rem' fontWeight={400} lineHeight='1.25rem' />}
-            {!hasError && Info && <Info infoText={infoText || ''} />}
+                {Error && <Error name={name} data={data} fontSize='0.75rem' fontWeight={400} lineHeight='1.25rem'/>}
+                {!hasError && Info && <Info infoText={infoText || ''} />}
         </FormElementWrapper>
     )
 }

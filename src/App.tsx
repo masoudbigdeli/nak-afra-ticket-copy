@@ -6,6 +6,7 @@ import useSyncCookieWithStore from './hooks/use-sync-cookie-with-store'
 import useDirection from './hooks/use-direction'
 import useRoutes from './hooks/use-routes'
 import RouteModel from './models/route-model'
+import FallbackLoading from './components/loading/fallback-loading'
 
 const queryClient = new QueryClient()
 const App: FC = () => {
@@ -23,7 +24,7 @@ const App: FC = () => {
               key={path}
               path={path}
               element={
-                <Suspense fallback={'loading...'}>
+                <Suspense fallback={<FallbackLoading />}>
                   <Layout>
                     <Cmp />
                   </Layout>

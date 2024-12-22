@@ -135,7 +135,7 @@ const OtpInput = <EntityModel extends Record<string, any>>({
                             key={item.index}
                             className={(hasError && isAllInputsDirty) ? 'error' : ''}
                             value={item.value}
-                            type='number'
+                            // type='number'
                             inputMode='numeric'
                             placeholder=' '
                             onChange={(event: ChangeEvent<HTMLInputElement>) => {

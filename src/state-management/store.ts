@@ -52,7 +52,7 @@ const useStore = create<StoreModel, any>(
     }),
         {
             name: persistedStoreName,
-            storage: createJSONStorage(() => localStorage),
+            storage: createJSONStorage(() => sessionStorage),
         },
     ),
 )
