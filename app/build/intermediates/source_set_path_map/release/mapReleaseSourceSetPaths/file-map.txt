@@ -1,0 +1,10 @@
+nakAfra.vercel.app-core-1.1.0-0 /home/code-wizard/.gradle/caches/8.8/transforms/2144911bb09dce3a07f407e3b390637e/transformed/core-1.1.0/res
+nakAfra.vercel.app-browser-1.4.0-1 /home/code-wizard/.gradle/caches/8.8/transforms/b511174c15fdde7dea3e957094b4390b/transformed/browser-1.4.0/res
+nakAfra.vercel.app-androidbrowserhelper-2.5.0-2 /home/code-wizard/.gradle/caches/8.8/transforms/d3335fbdff4200978ad121d7b141def7/transformed/androidbrowserhelper-2.5.0/res
+nakAfra.vercel.app-pngs-3 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/build/generated/res/pngs/release
+nakAfra.vercel.app-resValues-4 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/build/generated/res/resValues/release
+nakAfra.vercel.app-packageReleaseResources-5 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/build/intermediates/incremental/release/packageReleaseResources/merged.dir
+nakAfra.vercel.app-packageReleaseResources-6 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/build/intermediates/incremental/release/packageReleaseResources/stripped.dir
+nakAfra.vercel.app-release-7 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/build/intermediates/merged_res/release/mergeReleaseResources
+nakAfra.vercel.app-main-8 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/src/main/res
+nakAfra.vercel.app-release-9 /home/code-wizard/my-files/nak-files/NAK-PROJECKTS/nak-afra-ticket-copy/app/src/release/res
