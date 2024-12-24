@@ -100,3 +100,26 @@ export const ListLoadingWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme
         paddingBlock: theme.spacing.spacingXxxl
     }
 })
+
+export const FallbackLoadingWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme }) => {
+    return {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        minWidth: `min(100%, ${appMinWidth})`,
+        width: `min(100%, ${appMaxWidth})`,
+        maxWidth: '36rem',
+        minHeight: '100vh',
+        maxHeight: '100vh',
+        height: '100vh',
+        backgroundColor: '#E1F6F2',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // gap: theme.spacing.spacingM,
+        zIndex: 1000,
+        overflow: 'hidden'
+    }
+})
