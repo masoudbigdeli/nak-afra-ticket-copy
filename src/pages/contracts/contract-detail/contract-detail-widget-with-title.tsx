@@ -1,4 +1,4 @@
-import { ContractDetailWidgetContentWrapper, ContractDetailWidgetTitleWrapper, ContractWidgetsWithTitleWrapper } from "../../../styles/pages/contracts"
+import { ContractDetailWidgetContentWrapper, ContractDetailWidgetTitleWrapper, ContractWidgetsWithTitleWrapper } from '../../../styles/pages/contracts'
 
 interface ContractDetailWidgetProps {
     title?: string

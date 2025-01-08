@@ -211,7 +211,7 @@ const ImagePicker = <EntityModel extends Record<string, any>>({
                                                     key={(i + 1).toString()}
                                                 >
                                                     <div
-                                                        className="remover-wrapper"
+                                                        className='remover-wrapper'
                                                         onClick={(event: any) => event.stopPropagation()}
                                                     >
                                                         <Icon
@@ -221,7 +221,7 @@ const ImagePicker = <EntityModel extends Record<string, any>>({
                                                             onClick={() => onRemove(i)}
                                                         />
                                                     </div>
-                                                    <img src={item instanceof File ? URL.createObjectURL(item) : item.url} alt="single-file" />
+                                                    <img src={item instanceof File ? URL.createObjectURL(item) : item.url} alt='single-file' />
                                                 </ImageItemWrapper>
                                             ))
                                         }
@@ -250,7 +250,7 @@ const ImagePicker = <EntityModel extends Record<string, any>>({
                                             fieldData === null
                                                 ? <Icon iconName='plus' size='1.25' style={{ cursor: 'pointer' }} />
                                                 : <>
-                                                    <div className="remover-wrapper" onClick={(event: any) => event.stopPropagation()}>
+                                                    <div className='remover-wrapper' onClick={(event: any) => event.stopPropagation()}>
                                                         <Icon
                                                             iconName='formFieldResetter'
                                                             size='1.25'
@@ -258,7 +258,7 @@ const ImagePicker = <EntityModel extends Record<string, any>>({
                                                             onClick={onRemove}
                                                         />
                                                     </div>
-                                                    <img src={fieldData instanceof File ? URL.createObjectURL(fieldData) : fieldData.url} alt="single-file" />
+                                                    <img src={fieldData instanceof File ? URL.createObjectURL(fieldData) : fieldData.url} alt='single-file' />
                                                 </>
                                         }
                                     </ImageItemWrapper>

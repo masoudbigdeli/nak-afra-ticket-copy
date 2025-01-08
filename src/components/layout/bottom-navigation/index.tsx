@@ -1,13 +1,13 @@
-import { FC, useCallback, useMemo } from "react"
-import { useTranslation } from "react-i18next"
-import { useLocation, useNavigate } from "react-router-dom"
-import useStore from "../../../state-management/store"
-import StoreModel from "../../../models/store-model"
-import RouteModel from "../../../models/route-model"
-import routes from "../../../configs/routes"
-import BottomNavigationWrapper, { BottomNavigationItem } from "../../../styles/components/layout/bottom-navigation"
-import PATH_OF_ROUTES from "../../../enums/path-of-routes"
-import Icon from "../../icons/icon"
+import { FC, useCallback, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate } from 'react-router-dom'
+import useStore from '../../../state-management/store'
+import StoreModel from '../../../models/store-model'
+import RouteModel from '../../../models/route-model'
+import routes from '../../../configs/routes'
+import BottomNavigationWrapper, { BottomNavigationItem } from '../../../styles/components/layout/bottom-navigation'
+import PATH_OF_ROUTES from '../../../enums/path-of-routes'
+import Icon from '../../icons/icon'
 
 const BottomNavigation: FC = () => {
     const { t } = useTranslation()
@@ -55,7 +55,7 @@ const BottomNavigation: FC = () => {
                                 ? <Icon iconName={route.bottomNavigationIconName} size='1.25' isFill={isFillHandler(route)} />
                                 : null
                         }
-                        <div className="title">{t(`bottomNavigation.${route.title}`)}</div>
+                        <div className='title'>{t(`bottomNavigation.${route.title}`)}</div>
                     </BottomNavigationItem>
                 ))
             }

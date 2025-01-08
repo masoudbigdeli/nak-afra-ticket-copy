@@ -1,5 +1,5 @@
-import TICKET_MESSAGE_CREATOR_TYPE from "../../enums/ticket-message-creator-type"
-import TICKET_STATUS_TYPE from "../../enums/ticket-status-type"
+import TICKET_MESSAGE_CREATOR_TYPE from '../../enums/ticket-message-creator-type'
+import TICKET_STATUS_TYPE from '../../enums/ticket-status-type'
 
 export interface TicketEntityModel {
     id: number

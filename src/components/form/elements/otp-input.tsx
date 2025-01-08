@@ -96,7 +96,7 @@ const OtpInput = <EntityModel extends Record<string, any>>({
     }, [data, name, countOfDigit, code, setCode, onComplete])
 
     const onKeyDown = useCallback((event: KeyboardEvent<HTMLInputElement>, index: number) => {
-        ["e", "E", "+", "-", 'Shift', 'Alt', 'Control'].includes(event.key) && event.preventDefault()
+        ['e', 'E', '+', '-', 'Shift', 'Alt', 'Control'].includes(event.key) && event.preventDefault()
         const preventCodes: Array<string> = ['Space', 'Enter', 'ArrowUp', 'ArrowDown']
         if (preventCodes.includes(event.code)) event.preventDefault()
         const item: CodeItem = { ...code[index] }

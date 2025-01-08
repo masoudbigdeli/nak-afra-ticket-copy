@@ -9,8 +9,8 @@ interface ProfileDetailItemProps {
 const ProfileDetailItem: React.FC<ProfileDetailItemProps> = ({ title, content }) => {
     return (
         <ProfileDetailItemWrapper>
-            <div className="title-text">{title}</div>
-            <div className="content-text">{content}</div>
+            <div className='title-text'>{title}</div>
+            <div className='content-text'>{content}</div>
         </ProfileDetailItemWrapper>
     )
 }

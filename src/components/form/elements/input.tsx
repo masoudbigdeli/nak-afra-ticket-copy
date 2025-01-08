@@ -60,7 +60,7 @@ const Input = <EntityModel extends Record<string, any>>({
                     dir={dir}
                     placeholder=' '
                     onKeyDown={(type && type === 'number')
-                        ? (event: KeyboardEvent<HTMLInputElement>) => ["e", "E", "+", "-"].includes(event.key) && event.preventDefault()
+                        ? (event: KeyboardEvent<HTMLInputElement>) => ['e', 'E', '+', '-'].includes(event.key) && event.preventDefault()
                         : undefined
                     }
                     {...data.reactHookFormObject.register(name as any, registerOptions ? { ...registerOptions } : undefined)}

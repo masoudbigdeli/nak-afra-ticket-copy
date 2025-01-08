@@ -1,9 +1,9 @@
-import i18n from "i18next"
-import { initReactI18next } from "react-i18next"
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
 import translationsEN from './en/en.json'
 import translationsFA from './fa/fa.json'
-import { persistedStoreName } from "../state-management/store"
-import getDefaultLanguage from "../utils/get-default-language"
+import { persistedStoreName } from '../state-management/store'
+import getDefaultLanguage from '../utils/get-default-language'
 
 const resources = {
     en: {

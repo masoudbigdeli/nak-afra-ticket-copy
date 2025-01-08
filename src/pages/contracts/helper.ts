@@ -1,4 +1,4 @@
-import { Tab } from "../../components/tabs"
+import { Tab } from '../../components/tabs'
 
 export const queryParamsGenerator = (
     page: number,

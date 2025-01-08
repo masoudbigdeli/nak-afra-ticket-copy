@@ -1,4 +1,4 @@
-import ACCESS_STATUS_TYPE from "../../enums/access-status-type"
+import ACCESS_STATUS_TYPE from '../../enums/access-status-type'
 
 export interface AccessEntityModel {
     id: number

@@ -1,5 +1,5 @@
-import { FC, useMemo } from "react"
-import ProgressBarWrapper, { ProgressBarFill } from "../../styles/components/progress-bar"
+import { FC, useMemo } from 'react'
+import ProgressBarWrapper, { ProgressBarFill } from '../../styles/components/progress-bar'
 
 interface ProgressBarProps {
     scopeMaximumValue: number

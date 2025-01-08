@@ -1,5 +1,5 @@
-import BADGE_TYPE from "../../enums/badge-type"
-import BadgeWrapper from "../../styles/components/badge"
+import BADGE_TYPE from '../../enums/badge-type'
+import BadgeWrapper from '../../styles/components/badge'
 
 interface BadgeProps {
     badgeType: BADGE_TYPE

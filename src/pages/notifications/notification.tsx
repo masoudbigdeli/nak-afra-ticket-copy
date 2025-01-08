@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { NotificationEntityModel } from "../../models/pages/notification"
-import { NotificationItemDateAndTime, NotificationItemInfo, NotificationItemTitle, NotificationItemWrapper } from "../../styles/pages/notifications"
+import { FC } from 'react'
+import { NotificationEntityModel } from '../../models/pages/notification'
+import { NotificationItemDateAndTime, NotificationItemInfo, NotificationItemTitle, NotificationItemWrapper } from '../../styles/pages/notifications'
 
 const NotificationItem: FC<Omit<NotificationEntityModel, 'id'>> = ({ title, date, time, description }) => {
     return (

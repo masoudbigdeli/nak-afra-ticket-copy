@@ -1,6 +1,6 @@
-import { FC } from "react"
-import NoItemImage from "./no-item-image"
-import NoItemWrapper, { NoItemTextWrapper } from "../../styles/components/no-item"
+import { FC } from 'react'
+import NoItemImage from './no-item-image'
+import NoItemWrapper, { NoItemTextWrapper } from '../../styles/components/no-item'
 
 interface NoItemProps {
     text: string

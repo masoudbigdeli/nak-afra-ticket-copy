@@ -1,5 +1,5 @@
-import { CSSProperties } from "react"
-import TabsWrapper, { TabItem } from "../../styles/components/tabs"
+import { CSSProperties } from 'react'
+import TabsWrapper, { TabItem } from '../../styles/components/tabs'
 
 export interface Tab<T extends any> {
     id: number | string
