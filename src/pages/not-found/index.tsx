@@ -8,7 +8,6 @@ const NotFound: FC = () => {
             <NotFoundImage />
             <NotFoundText>صفحه ای یافت نشد!</NotFoundText>
         </NotFoundWrapper>
-
     )
 }
 

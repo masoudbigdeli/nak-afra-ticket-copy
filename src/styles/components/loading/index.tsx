@@ -101,8 +101,8 @@ export const ListLoadingWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme
     }
 })
 
-export const FallbackLoadingWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme }) => {
-    return {
+export const FallbackLoadingWrapper = styled.div(
+    {
         position: 'fixed',
         top: '50%',
         left: '50%',
@@ -122,4 +122,4 @@ export const FallbackLoadingWrapper = styled.div<{ theme?: AppThemeModel }>(({ t
         zIndex: 1000,
         overflow: 'hidden'
     }
-})
+)
