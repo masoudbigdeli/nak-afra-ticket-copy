@@ -71,6 +71,7 @@ const Login: FC = () => {
                 otp: { transport: ['sms'] },
                 signal: ac.signal
             })
+            toaster.INFO(`mammad: ${JSON.stringify(content)}`)
             setNavigatorOtp(content.code)
         } catch (error) {
 
