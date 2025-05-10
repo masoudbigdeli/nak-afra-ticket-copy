@@ -33,7 +33,11 @@ const TopNavigation: FC<TopNavigationProps> = ({ forceHideBackBtn }) => {
 
     const handleBackButtonClick = useCallback(() => {
         if (forceHideBackBtn) return
-        window.history.back()
+        if (currentRoute?.title === 'contracts') {
+            navigate('/')
+        } else {
+            window.history.back()
+        }
     }, [forceHideBackBtn, navigate])
 
     if (!currentRoute || !currentRoute.uiLayoutConfig.hasHeader) return null

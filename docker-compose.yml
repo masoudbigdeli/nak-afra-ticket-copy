@@ -1,0 +1,41 @@
+version: '3.9'
+
+
+
+services:
+
+inode-frontend:
+
+build:
+
+context: .
+
+dockerfile: Dockerfile
+
+image: registry.moon.nak-mci.ir/inode/inode-frontend:latest
+
+ports:
+
+- "3000:80"
+
+restart: always
+
+networks:
+
+- inode_network
+
+environment:
+
+- NODE_ENV=production
+
+- PORT=4000
+
+
+
+
+
+networks:
+
+inode_network:
+
+external: true

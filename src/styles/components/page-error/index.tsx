@@ -5,6 +5,8 @@ import { CSSProperties } from 'react'
 
 
 const PageErrorWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme }) => {
+    const screenHeight: number = window.visualViewport?.height || 0
+
     return {
         position: 'fixed',
         top: '50%',
@@ -13,9 +15,9 @@ const PageErrorWrapper = styled.div<{ theme?: AppThemeModel }>(({ theme }) => {
         minWidth: `min(100%, ${appMinWidth})`,
         width: `min(100%, ${appMaxWidth})`,
         maxWidth: '36rem',
-        minHeight: '100vh',
-        maxHeight: '100vh',
-        height: '100vh',
+        minHeight: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
+        maxHeight: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
+        height: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
         backgroundColor: `${theme.color.solid.white}`,
         display: 'flex',
         flexDirection: 'column',

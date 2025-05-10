@@ -8,7 +8,7 @@ export const ticketListDataS2CMiddleware = (tickets?: Array<ServerTicketListMode
     if (!tickets) return []
     return tickets.map((ticket) => ({
         id: ticket.id,
-        status: convertServerTicketStatusToClient(ticket),
+        status: ticket.status === '0' ? TICKET_STATUS_TYPE.OPEN : ticket.status === '1' ? TICKET_STATUS_TYPE.READ : ticket.status === '2' ? TICKET_STATUS_TYPE.FOLLOWINGUP : ticket.status === '3' ? TICKET_STATUS_TYPE.CLOSED : TICKET_STATUS_TYPE.CLOSED,
         title: ticket.subject,
         date: new Date(ticket.created_at).toLocaleDateString('fa-IR'),
         time: new Date(ticket.created_at).toLocaleTimeString('fa-IR', {

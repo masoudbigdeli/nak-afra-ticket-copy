@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MouseEvent } from 'react'
 import Button from '../button'
 import { ActionConfirmPopoverModalBtnWrapper, ActionConfirmPopoverModalHeaderContainer, ActionConfirmPopoverModalText, ActionConfirmPopoverModalWrapper } from '../../styles/components/action-confirm-popover'
 
@@ -12,7 +12,9 @@ interface ActionConfirmPopoverProps {
 }
 const ActionConfirmPopover: FC<ActionConfirmPopoverProps> = ({ loading, message, cancelBtnTitle, actionBtnTitle, onCancel, onAction }) => {
     return (
-        <ActionConfirmPopoverModalWrapper>
+        <ActionConfirmPopoverModalWrapper
+            onClick={(event: MouseEvent<HTMLDivElement, unknown>) => event.stopPropagation()}
+        >
             <ActionConfirmPopoverModalHeaderContainer>
                 <div></div>
             </ActionConfirmPopoverModalHeaderContainer>

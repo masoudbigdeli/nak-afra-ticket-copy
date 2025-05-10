@@ -121,18 +121,22 @@ export const EditPhoneNumberWrapper = styled.div<{ theme?: AppThemeModel }>(({ t
     }
 })
 
-export const FormSectionWrapper = styled.div({
-    boxSizing: 'border-box',
-    width: '100%',
-    minWidth: '100%',
-    maxWidth: '100%',
-    height: 'calc(100% - 14.0625rem)',
-    minHeight: 'calc(100% - 14.0625rem)',
-    maxHeight: 'calc(100% - 14.0625rem)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+
+export const FormSectionWrapper = styled.div( {
+        boxSizing: 'border-box',
+        width: '100%',
+        minWidth: '100%',
+        maxWidth: '100%',
+        height: 'calc(100% - 14.0625rem)',
+        minHeight: 'calc(100% - 14.0625rem)',
+        maxHeight: 'calc(100% - 14.0625rem)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        '&.focus': {
+            justifyContent: 'flex-start'
+        }
 })
 
 export const FormSectionInputWrapper = styled.div({

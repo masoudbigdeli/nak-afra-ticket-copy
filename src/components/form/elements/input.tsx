@@ -4,11 +4,18 @@ import { CharacterCounterCmpWrapper, InputUi, InputWrapper, InsideIconsWrapper, 
 import { FormElementBaseProps } from '../index'
 
 export interface InputProps<EntityModel extends Record<string, any>> extends FormElementBaseProps<EntityModel>, DOMAttributes<HTMLInputElement> {
+    id?: string
+    formElementWrapperId?: string
+    inputWrapperId?: string
     type?: HTMLInputTypeAttribute | undefined
+    inputMode?: string
     labelStyle?: CSSProperties | undefined
 }
 
 const Input = <EntityModel extends Record<string, any>>({
+    id,
+    formElementWrapperId,
+    inputWrapperId,
     name,
     data,
     registerOptions,
@@ -45,9 +52,10 @@ const Input = <EntityModel extends Record<string, any>>({
     }, [])
 
     return (
-        <FormElementWrapper>
-            <InputWrapper>
+        <FormElementWrapper id={formElementWrapperId}>
+            <InputWrapper id={inputWrapperId}>
                 <InputUi
+                    id={id}
                     type={type}
                     key={name.toString()}
                     defaultValue={data.defaultValue[name]}
@@ -100,8 +108,8 @@ const Input = <EntityModel extends Record<string, any>>({
                         : null
                 }
             </InputWrapper>
-                {Error && <Error name={name} data={data} fontSize='0.75rem' fontWeight={400} lineHeight='1.25rem'/>}
-                {!hasError && Info && <Info infoText={infoText || ''} />}
+            {Error && <Error name={name} data={data} fontSize='0.75rem' fontWeight={400} lineHeight='1.25rem' />}
+            {!hasError && Info && <Info infoText={infoText || ''} />}
         </FormElementWrapper>
     )
 }

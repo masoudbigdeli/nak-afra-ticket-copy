@@ -41,6 +41,8 @@ const Layout: FC<ProtectedLayoutProps> = ({ children }) => {
             : 'url(/fonts/fa/IRANSansXFaNum-Regular.ttf)'
     ), [direction])
 
+    const screenHeight: number = window.visualViewport?.height || 0
+
     return (
         <ThemeProvider theme={theme}>
             <Global
@@ -59,10 +61,10 @@ const Layout: FC<ProtectedLayoutProps> = ({ children }) => {
                         width: '100vw',
                         minWidth: '100vw',
                         maxWidth: '100vw',
-                        height: 'max-content',
-                        minHeight: 'max-content',
-                        maxHeight: 'max-content',
-                        overflowY:'hidden',
+                        height: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
+                        minHeight: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
+                        maxHeight: screenHeight ? `min(100vh, ${screenHeight}px)` : '100vh',
+                        overflowY: 'hidden',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-start',
@@ -82,9 +84,9 @@ const Layout: FC<ProtectedLayoutProps> = ({ children }) => {
                             width: '100vw',
                             minWidth: '100vw',
                             maxWidth: '100vw',
-                            height: 'max-content',
-                            minHeight: 'max-content',
-                            maxHeight: 'max-content',
+                            height: '100%',
+                            minHeight: '100%',
+                            maxHeight: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'flex-start',

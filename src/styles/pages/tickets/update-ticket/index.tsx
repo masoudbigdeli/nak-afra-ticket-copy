@@ -12,7 +12,8 @@ const TicketPagesWrapper = styled.div({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    position: 'relative',
+    // position: 'relative',
+    overflowX: 'hidden'
 })
 
 export default TicketPagesWrapper

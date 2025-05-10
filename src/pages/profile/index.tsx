@@ -17,7 +17,7 @@ import toaster from '../../components/toaster'
 import { IconName } from '../../components/icons/icon-list'
 import ActionConfirmPopover from '../../components/action-confirm-popover'
 
-const logoutPopoverName = 'logoutPopoverName'
+const logoutPopoverName = 'logoutPopoverNameSelfClose'
 
 const Profile: FC = () => {
     const navigate = useNavigate()
@@ -144,6 +144,7 @@ const Profile: FC = () => {
                 <Modal
                     type={MODAL_TYPE.BOTTOM}
                     show={showLogoutModal}
+                    disableStopPropagation={true}
                     triggerElement={
                         <GeneralItemWidget
                             widgetInfo={logoutWidgetInfo}

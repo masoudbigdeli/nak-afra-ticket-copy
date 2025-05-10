@@ -7,12 +7,18 @@ import useDirection from './hooks/use-direction'
 import useRoutes from './hooks/use-routes'
 import RouteModel from './models/route-model'
 import FallbackLoading from './components/loading/fallback-loading'
+import { useScrollRestoration } from './hooks/use-scroll-restoration'
+
 
 const queryClient = new QueryClient()
+
+export const scrollDataStorage: Record<string, number> = {}
+
 const App: FC = () => {
   useAuthenticateController()
   useSyncCookieWithStore()
   useDirection()
+  useScrollRestoration()
   const routes: Array<RouteModel> = useRoutes()
 
   return (

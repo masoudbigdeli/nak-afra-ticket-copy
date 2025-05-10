@@ -149,13 +149,14 @@
         }
     },
     "notificationsPage": {
-        "thereIsNoNotification": "no notifications!"
+        "thereIsNoNotification": "No notifications!",
+        "loadingNotifications": "Loading notifications ..."
     },
     "form": {
         "error": {
             "required": "field is required",
             "formNotValid": "please complete the form",
-            "fileSizeIsInvalid": "image size is more than 3.5 MB",
+            "fileSizeIsInvalid": "image size is more than 3 MB",
             "dataFetchingError": "error in fetching data, please try again",
             "tryAgainBtn": "Please try again"
         },

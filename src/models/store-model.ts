@@ -19,7 +19,7 @@ export interface StoreDataModel {
         numberOfInstallSuggestion: number
         latestTimeOfInstallSuggestion: number
     }
-    entitiesListFetchLatestConfig: Record<ApplicationEntities, { page: number, perPage: number, filter: any, sort: any }>
+    entitiesListFetchLatestConfig: Record<ApplicationEntities, { filter: any }>
 }
 
 export interface StoreActionModel {

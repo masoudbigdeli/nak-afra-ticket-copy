@@ -11,6 +11,7 @@ import Button from '../../components/button'
 import ContractHomeWidget from './widgets/contract-home-widget'
 import AccessHomeWidget from './widgets/access-home-widget'
 import TicketHomeWidget from './widgets/ticket-home-widget'
+import NoItem from '../../components/no-item'
 
 
 type HomeWidgetsType = 'Contract' | 'Message' | 'License'
@@ -77,12 +78,14 @@ const Home: FC = () => {
     return (
         <PagesContainer style={{ overflow: 'auto', paddingLeft: '0rem' }}>
             {
-                orderList.map((widget: HomeWidgetsType) => {
-                    const Cmp = widgets[widget]
-                    return <Fragment key={widget}>
-                        <Cmp />
-                    </Fragment>
-                })
+                orderList && orderList.length
+                    ? orderList.map((widget: HomeWidgetsType) => {
+                        const Cmp = widgets[widget]
+                        return <Fragment key={widget}>
+                            <Cmp />
+                        </Fragment>
+                    })
+                    : <NoItem loading={loading} text={t('homePage.widgetFetchingError')} />
             }
         </PagesContainer>
     )

@@ -16,9 +16,9 @@ const ModalWrapper = styled.div<ModalWrapperProps & { theme?: AppThemeModel }>((
     minWidth: `min(100%, ${appMinWidth})`,
     width: `min(100%, ${appMaxWidth})`,
     maxWidth: '36rem',
-    minHeight: '92vh',
-    maxHeight: '92vh',
-    height: '92vh',
+    minHeight: '100%',
+    maxHeight: '100%',
+    height: '100%',
     marginInline: 'auto',
     position: 'fixed',
     top: 0,
@@ -63,6 +63,21 @@ export const ModalDialogElementWrapper = styled.div<ModalDialogElementWrapperPro
     bottom: '0rem',
     left: '0rem',
     right: '0rem',
+    '> .dialog-element': {
+      boxSizing: 'border-box',
+      minWidth: `min(100%, ${appMinWidth})`,
+      width: `min(100%, ${appMaxWidth})`,
+      maxWidth: '36rem',
+      heigth: 'max-content',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 0,
+      margin: 0,
+      border: 'none',
+      outline: 'none',
+      backgroundColor: 'transparent',
+    }
   }
 })
 

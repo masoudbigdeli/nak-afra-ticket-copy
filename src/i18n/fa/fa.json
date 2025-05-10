@@ -170,13 +170,14 @@
         }
     },
     "notificationsPage": {
-        "thereIsNoNotification": "پیامی موجود نیست!"
+        "thereIsNoNotification": "پیامی موجود نیست!",
+        "loadingNotifications": "در حال بارگذاری پیامها ..."
     },
     "form": {
         "error": {
             "required": "فیلد الزامیست",
             "formNotValid": "اطلاعات فرم کامل نیست",
-            "fileSizeIsInvalid": "حجم تصویر بیش از ۳.۵ مگابایت است",
+            "fileSizeIsInvalid": "حجم تصویر بیش از ۳ مگابایت است",
             "dataFetchingError": "خطا در فراخوانی اطلاعات، لطفا مجددا تلاش نمایید.",
             "tryAgainBtn": "تلاش مجدد"
         },

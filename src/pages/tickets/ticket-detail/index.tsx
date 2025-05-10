@@ -24,7 +24,7 @@ import ActionConfirmPopover from '../../../components/action-confirm-popover'
 import useStore from '../../../state-management/store'
 import StoreModel from '../../../models/store-model'
 
-const ticketDeletePopoverName = 'ticketDeletePopoverName'
+const ticketDeletePopoverName = 'ticketDeletePopoverNameSelfClose'
 
 const TicketDetail: FC = () => {
     const { t } = useTranslation()
@@ -179,6 +179,7 @@ const TicketDetail: FC = () => {
                                         <Modal
                                             type={MODAL_TYPE.BOTTOM}
                                             show={showTicketDeleteModal}
+                                            disableStopPropagation={true}
                                             triggerElement={
                                                 <Button
                                                     type='OUTLINE'
@@ -201,7 +202,7 @@ const TicketDetail: FC = () => {
                                                     onAction={doDeleteById}
                                                 />
                                             }
-                                            onClose={() => { }}
+                                            onClose={() => setActivePopoverName(null)}
                                         />
                                         <Button
                                             type='FILLED'

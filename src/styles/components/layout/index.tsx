@@ -14,21 +14,21 @@ const LayoutWrapper = styled.div<LayoutWrapperProps & { theme?: AppThemeModel }>
         minWidth: `min(100%, ${appMinWidth})`,
         width: `min(100%, ${appMaxWidth})`,
         maxWidth: '36rem',
-        minHeight: '92vh',
-        maxHeight: '92vh',
-        height: '92vh',
+        minHeight: '100%',
+        maxHeight: '100%',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        // position: 'relative',
+        position: 'relative',
         paddingTop: uiLayoutConfig.hasHeader ? headerHeight : '0rem',
         paddingBottom: uiLayoutConfig.hasFooter ? footerHeight : '0rem',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        marginInline: 'auto'
+        // position: 'absolute',
+        // top: 0,
+        // left: 0,
+        // right: 0,
+        // marginInline: 'auto'
     }
 })
 

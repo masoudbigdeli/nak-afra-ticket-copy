@@ -33,7 +33,6 @@ export const TicketDetailWrapper = styled.div<{ theme?: AppThemeModel }>(({ them
     gap: theme.spacing.spacingM,
     padding: theme.spacing.spacingL,
     paddingBottom: '6.25rem',
-    overflow: 'auto',
     position: 'relative',
 }));
 

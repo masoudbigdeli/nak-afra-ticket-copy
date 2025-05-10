@@ -1,4 +1,4 @@
-import { FC, useCallback, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { UseFormReturn } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import * as yup from 'yup'
@@ -35,6 +35,7 @@ import { logintDataS2CMiddleware } from '../../services-data-middleware/server-t
 const formDefaultValue: LoginOtpForm = { mobile: '', code: '' }
 
 const Login: FC = () => {
+    const wrapperElementRef = useRef<HTMLDivElement | null>(null)
     const { t } = useTranslation()
     const { createEntity, getEntity } = useCrudService()
 
@@ -44,6 +45,37 @@ const Login: FC = () => {
     const [viewStatus, setViewStatus] = useState<LOGIN_PAGE_VIEW_STATUS>(LOGIN_PAGE_VIEW_STATUS.CELL_PHONE)
     const [remainingTime, setRemainingTime] = useState<number>(0)
     const [loading, setLoading] = useState<boolean>(false)
+    const [navigatorOtp, setNavigatorOtp] = useState<string | undefined>(undefined)
+
+    const handleClickOutOfInput = (ev: DocumentEventMap['mousedown']) => {
+        const input = document.getElementById('login-mobile-input')
+        if (!wrapperElementRef.current || !input) return
+        if (!input.contains(ev.target as any)) {
+            wrapperElementRef.current.classList.remove('focus')
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutOfInput)
+        return () => {
+            document.removeEventListener('click', handleClickOutOfInput)
+        }
+    }, [])
+
+    const navigatorAutoCompleteOtpCallback = useCallback(async (ttl: number) => {
+        try {
+            const ac = new AbortController()
+            setTimeout(() => ac.abort(), ttl)
+
+            const content = await (navigator.credentials as any).get({
+                otp: { transport: ['sms'] },
+                signal: ac.signal
+            })
+            setNavigatorOtp(content.code)
+        } catch (error) {
+
+        }
+    }, [])
 
     const backToCellPhoneViewState = useCallback((reactHookFormObject: UseFormReturn<LoginOtpForm>) => {
         setViewStatus(LOGIN_PAGE_VIEW_STATUS.CELL_PHONE)
@@ -62,6 +94,7 @@ const Login: FC = () => {
         }, 1000)
     }, [remainingTime, setRemainingTime, timeoutRef])
 
+
     const getOtp = useCallback(async (form: LoginPhoneForm) => {
         setLoading(true)
         try {
@@ -76,6 +109,10 @@ const Login: FC = () => {
             const ttl: number = Math.floor(logintDataS2CMiddleware(res.data as any).ttl)
             counter(ttl > 0 ? ttl : 60)
             setViewStatus(LOGIN_PAGE_VIEW_STATUS.OTP)
+            if (wrapperElementRef.current) {
+                wrapperElementRef.current.classList.remove('focus')
+            }
+            navigatorAutoCompleteOtpCallback(ttl)
         } catch (error) {
             toaster.ERROR(t('loginPage.loginFailed'))
         } finally {
@@ -200,10 +237,12 @@ const Login: FC = () => {
                                 </EditPhoneNumberWrapper>
                                 : <HintText>{t('loginPage.enterPhoneNumberToLogin')}</HintText>
                         }
-                        <FormSectionWrapper>
+                        <FormSectionWrapper ref={wrapperElementRef}
+                        >
                             {
                                 viewStatus === LOGIN_PAGE_VIEW_STATUS.CELL_PHONE
                                     ? <Input<LoginOtpForm>
+                                        inputWrapperId='login-mobile-input'
                                         name='mobile'
                                         data={data}
                                         dir='ltr'
@@ -213,12 +252,19 @@ const Login: FC = () => {
                                         error={Error}
                                         resetter={Resetter}
                                         type='number'
+                                        inputMode='tel'
+                                        onFocus={() => {
+                                            if (wrapperElementRef.current) {
+                                                wrapperElementRef.current.classList.add('focus')
+                                            }
+                                        }}
                                     />
                                     : <FormSectionInputWrapper >
                                         <OtpInput<LoginOtpForm>
                                             name='code'
                                             data={data}
                                             countOfDigit={6}
+                                            navigatorOtp={navigatorOtp}
                                             error={Error}
                                             onComplete={() => {
                                                 data.reactHookFormObject.handleSubmit(

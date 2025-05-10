@@ -11,6 +11,7 @@ interface OtpInputProps<EntityModel extends Record<string, any>> {
     info?: FC<InfoProps>
     infoText?: string
     countOfDigit: number
+    navigatorOtp?: string
     onComplete?: () => void
 }
 
@@ -29,6 +30,7 @@ const OtpInput = <EntityModel extends Record<string, any>>({
     info: Info,
     infoText,
     countOfDigit,
+    navigatorOtp,
     onComplete,
 }: OtpInputProps<EntityModel>) => {
     const [code, setCode] = useState<Array<CodeItem>>(initialValue(countOfDigit))
@@ -52,6 +54,33 @@ const OtpInput = <EntityModel extends Record<string, any>>({
             firstInput.focus()
         }
     }, [])
+
+    useEffect(() => {
+        if (typeof navigatorOtp !== 'string' || isNaN(Number(navigatorOtp)) || navigatorOtp.length !== countOfDigit) return
+        const generatedCode: Array<CodeItem> = []
+        navigatorOtp.split('').forEach((item: string, index: number) => {
+            generatedCode.push({
+                index,
+                isFirst: index === 0,
+                isLatest: index === countOfDigit - 1,
+                value: item,
+                isValid: true,
+            })
+        })
+        setCode(generatedCode)
+        data.reactHookFormObject.setValue(
+            name as string as Path<EntityModel>,
+            navigatorOtp as PathValue<EntityModel, Path<EntityModel>>,
+            {
+                shouldValidate: true,
+                shouldDirty: true,
+                shouldTouch: true,
+            }
+        )
+        if (onComplete) {
+            setTimeout(() => onComplete(), 300);
+        }
+    }, [navigatorOtp, countOfDigit])
 
     const onItemChange = useCallback((value: string, index: number) => {
         const item: CodeItem = { ...code[index] }

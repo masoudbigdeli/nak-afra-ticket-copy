@@ -1,4 +1,4 @@
-import { FC, Fragment, useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { FC, Fragment, useCallback, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import ContractWidget from '../../components/contract-widget'
 import { ContractsGroupWrapper, ContractsPageTabsWrapper, ContractsPageWrapper } from '../../styles/components/contract-widget'
@@ -6,24 +6,24 @@ import Tabs, { Tab } from '../../components/tabs'
 import { contractListDataS2CMiddleware } from '../../services-data-middleware/server-to-client/contract'
 import useCrudService from '../../services/crud-service'
 import apiUri from '../../configs/api-uri'
-import usePaginationConfig from '../../hooks/use-pagination-config'
-import usePagination from '../../hooks/use-pagination'
-import useScrollDetection, { VerticalDirectionType } from '../../hooks/use-scroll-detection'
-import USE_PAGINATION_ACTION_TYPE from '../../enums/use-pagination-action-type'
 import { queryParamsGenerator } from './helper'
-import calculateTotalPageOfList from '../../utils/calculate-total-page-of-list'
-import PageError from '../../components/page-error'
 import PATH_OF_ROUTES from '../../enums/path-of-routes'
 import { useNavigate } from 'react-router-dom'
 import { ListLoadingWrapper, LoaderText } from '../../styles/components/loading'
 import { LoaderBars } from '../../components/loading'
 import NoItem from '../../components/no-item'
+import StoreModel from '../../models/store-model'
+import useStore from '../../state-management/store'
+import { calculateFetchHasMore } from '../../utils/calculate-fetch-has-more'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import replaceChar1WithChar2 from '../../utils/replace-char1-with-char2'
 
 const Contracts: FC = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
     const { getEntity } = useCrudService()
-    const { latestConfig, bulkLatestConfigSetter } = usePaginationConfig('contract')
+
+    const loadMoreRef = useRef<HTMLDivElement | null>(null)
     const contractsPageTabsWrapperRef = useRef<HTMLDivElement | null>(null)
 
     const tabOptions: Array<Tab<string>> = useMemo(() => [
@@ -31,130 +31,75 @@ const Contracts: FC = () => {
         { id: 2, label: t('contractPage.expiredContractTab'), value: 'status=0' }
     ], [])
 
-    const [loading, setLoading] = useState<boolean>(false)
-    const [fetchError, setFetchError] = useState<boolean>(true)
-    const [isInitialRequest, setIsInitialRequest] = useState<boolean>(true)
+    const initialFilter: Tab<string> | null = useStore((store: StoreModel) => store.entitiesListFetchLatestConfig['contract']?.filter)
+    const entitiesListFetchLatestConfig = useStore((store: StoreModel) => store.entitiesListFetchLatestConfig)
+    const setEntitiesListFetchLatestConfig = useStore((store: StoreModel) => store.setEntitiesListFetchLatestConfig)
 
-    const [data, setData] = useState<Array<any>>([])
-    const { page, lowestPage, highestPage, perPage, totalPage, filter, sort, dispatch } = usePagination<Tab<string>, undefined>({
-        ...latestConfig,
-        filter: latestConfig.filter || tabOptions[0]
-    })
+    useEffect(() => {
+        const hash: string = (initialFilter ? initialFilter.label : tabOptions[0].label)
+        navigate({
+            pathname: PATH_OF_ROUTES.CONTRACTS,
+            hash: replaceChar1WithChar2(hash, ' ', '-')
+        })
+    }, [])
+
+    const filter: Tab<string> = useMemo(() => {
+        if (!initialFilter) return tabOptions[0]
+        return initialFilter
+    }, [initialFilter, tabOptions])
 
     const handleTabClick = useCallback((tab: Tab<string>) => {
         if (tab.value === filter.value) return
-        dispatch({ type: USE_PAGINATION_ACTION_TYPE.FILTER, payload: tab })
-        setData([])
-        handleRequest(1, perPage, tab, sort, [])
-    }, [perPage, filter, sort, dispatch])
+        navigate({
+            pathname: PATH_OF_ROUTES.CONTRACTS,
+            hash: replaceChar1WithChar2(tab.label, ' ', '-')
+        })
+        setEntitiesListFetchLatestConfig({
+            ...entitiesListFetchLatestConfig,
+            contract: { 'filter': tab }
+        })
+    }, [filter])
 
-    const { elementRef, verticalDirection, onScroll } = useScrollDetection<HTMLDivElement>({
-        loading,
-        onTouchCallback: (verticalDirection: 'top' | 'down') => handlePagination(verticalDirection)
-    })
-
-    const loadingType: VerticalDirectionType | null = useMemo(() => {
-        if (!loading) return null
-        if (!verticalDirection) return null
-        return verticalDirection
-    }, [verticalDirection, loading])
-
-    const handleRequest = useCallback(async (
-        page: number,
-        perPage: number,
-        filter: Tab<string>,
-        sort: any,
-        preData: Array<any>,
-        verticalDirection?: 'top' | 'down',
-        isInitial?: boolean
+    const fetchContracts = async (
+        { pageParam = 1, queryKey }: { pageParam?: number; queryKey: (string | { filter: Tab<string> })[] }
     ) => {
-        setIsInitialRequest(isInitial ? true : false)
+        const [, { filter }] = queryKey as [string, { filter: Tab<string> }]
         try {
-            setLoading(true)
-            setFetchError(false)
-            const response = await getEntity(
-                apiUri.contractList.uri(queryParamsGenerator(page, perPage, filter, sort)),
-                apiUri.contractList.permissions,
+
+            const res = await getEntity(
+                apiUri.contractList.uri(queryParamsGenerator(pageParam, 10, filter)),
+                apiUri.contractList.permissions
             )
 
-            let recievedData: Array<any> = (response.data as any).data
-            let totalPage = calculateTotalPageOfList((response.data as any).meta.total, perPage)
+            return {
+                items: contractListDataS2CMiddleware((res.data as any).data),
+                hasMore: calculateFetchHasMore((res.data as any).meta.total, (res.data as any).meta.per_page, (res.data as any).meta.current_page)
+            }
+        } catch (error) {
 
-            if (page === totalPage && page > 1 && recievedData.length < perPage && isInitial) {
-                const responseOfPreviousPage = await getEntity(
-                    apiUri.accessList.uri(queryParamsGenerator((page - 1), perPage, filter, sort)),
-                    apiUri.accessList.permissions,
-                )
-                recievedData = [...(responseOfPreviousPage.data as any).data, ...recievedData]
-                dispatch({ type: USE_PAGINATION_ACTION_TYPE.LOWEST_PAGE, payload: totalPage - 1 })
-            }
-
-            dispatch({ type: USE_PAGINATION_ACTION_TYPE.TOTAL_PAGE, payload: totalPage })
-            if (!verticalDirection) {
-                setData(() => contractListDataS2CMiddleware([...recievedData]))
-            }
-            if (verticalDirection === 'down') {
-                setData(() => [...preData, ...contractListDataS2CMiddleware(recievedData)])
-            } else {
-                setData(() => [...contractListDataS2CMiddleware(recievedData), ...preData])
-                if (page > 1) onSuccessCallback()
-            }
-        } catch (err) {
-            setFetchError(true)
-            if (verticalDirection === 'down') {
-                const payload: number = highestPage - 1
-                dispatch({ type: USE_PAGINATION_ACTION_TYPE.HIGHEST_PAGE, payload })
-            }
-            if (verticalDirection === 'top') {
-                const payload: number = lowestPage <= 1 ? 1 : lowestPage + 1
-                dispatch({ type: USE_PAGINATION_ACTION_TYPE.LOWEST_PAGE, payload })
-            }
-        } finally {
-            setLoading(false)
         }
-    }, [loading, lowestPage, highestPage, setData, setIsInitialRequest, dispatch])
-
-    const onSuccessCallback = useCallback(() => {
-        setTimeout(() => elementRef.current?.scrollTo({ top: 1, behavior: 'smooth' }), 500)
-    }, [elementRef])
-
-    const handlePagination = useCallback(async (verticalDirection: 'top' | 'down') => {
-        if (loading) return
-        if (verticalDirection === 'top' && lowestPage === 1) return
-        setLoading(true)
-        if (verticalDirection === 'down') {
-            if (totalPage && highestPage >= totalPage) {
-                setLoading(false)
-                return
-            }
-            const payload: number = highestPage + 1
-            dispatch({ type: USE_PAGINATION_ACTION_TYPE.HIGHEST_PAGE, payload })
-            handleRequest(payload, perPage, filter, sort, data, verticalDirection, false)
-        } else {
-            const payload: number = lowestPage === 1 ? 1 : lowestPage - 1
-            dispatch({ type: USE_PAGINATION_ACTION_TYPE.LOWEST_PAGE, payload })
-            handleRequest(payload, perPage, filter, sort, data, verticalDirection, false)
-        }
-    }, [loading, perPage, filter, sort, data, highestPage, lowestPage, dispatch, setLoading])
-
-    useLayoutEffect(() => {
-        bulkLatestConfigSetter({ page, perPage, filter, sort })
-    }, [page, perPage, filter, sort])
-
-    useLayoutEffect(() => {
-        handleRequest(page, perPage, filter, sort, data, undefined, true)
-    }, [])
-
-    if (fetchError) {
-        return (
-            <PageError
-                btnText={t('form.error.tryAgainBtn')}
-                message={t('form.error.dataFetchingError')}
-                onTryAgainBtnClick={() => handleRequest(page, perPage, filter, sort, data, undefined, isInitialRequest)}
-                onBackBtnClick={() => navigate(PATH_OF_ROUTES.HOME)}
-            />
-        )
     }
+
+    const { data, hasNextPage, isFetchNextPageError, isFetchingNextPage, isLoading, fetchNextPage } = useInfiniteQuery({
+        queryKey: ['contracts', { filter }],
+        initialPageParam: 1,
+        queryFn: fetchContracts,
+        getNextPageParam: (lastPage, allPages) => {
+            if (!lastPage) return undefined
+            return lastPage.hasMore ? allPages.length + 1 : undefined
+        }
+    })
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && hasNextPage) {
+                fetchNextPage()
+            }
+        }, { threshold: 1 })
+
+        if (loadMoreRef.current) observer.observe(loadMoreRef.current)
+        return () => observer.disconnect()
+    }, [hasNextPage, fetchNextPage])
 
     return (
         <ContractsPageWrapper>
@@ -165,9 +110,35 @@ const Contracts: FC = () => {
                     onTabClick={handleTabClick}
                 />
             </ContractsPageTabsWrapper>
-            <ContractsGroupWrapper siblingContainerHeight={contractsPageTabsWrapperRef.current?.clientHeight} ref={elementRef} onScroll={onScroll}>
+            <ContractsGroupWrapper data-scroll-key="true" siblingContainerHeight={contractsPageTabsWrapperRef.current?.clientHeight}>
                 {
-                    loadingType === 'top'
+                    data && data?.pages[0] !== undefined
+                        ? data?.pages.map((page) =>
+
+                            page?.items.map((item: any) => (
+
+                                <Fragment key={item.id}>
+                                    <ContractWidget
+                                        id={item.id}
+                                        contractNumber={`${t('contractPage.contractNumberText')} ${item.contractNumber} `}
+                                        siteCode={item.siteCode}
+                                        status={item.status}
+                                        contractDuration={item.contractDuration}
+                                        contractRemaining={item.contractRemaining}
+                                    />
+                                </Fragment>
+                            ))
+                        )
+                        : <NoItem loading={isLoading} text={t('contractPage.noContractFound')} />
+                }
+                {
+                    isFetchNextPageError
+                        ? 'button'
+                        : null
+                }
+                {
+                    isLoading || isFetchingNextPage
+
                         ? <ListLoadingWrapper >
                             <LoaderBars size={1} />
                             <LoaderText size={0.75}>
@@ -176,31 +147,7 @@ const Contracts: FC = () => {
                         </ListLoadingWrapper>
                         : null
                 }
-                {
-                    data ? data.map((contract) => (
-                        <Fragment key={contract.id}>
-                            <ContractWidget
-                                id={contract.id}
-                                contractNumber={`${t('contractPage.contractNumberText')} ${contract.contractNumber} `}
-                                siteCode={contract.siteCode}
-                                status={contract.status}
-                                contractDuration={contract.contractDuration}
-                                contractRemaining={contract.contractRemaining}
-                            />
-                        </Fragment>
-                    ))
-                        : <NoItem loading={loading} text={t('contractPage.noContractFound')} />
-                }
-                {
-                    loadingType === 'down'
-                        ? <ListLoadingWrapper >
-                            <LoaderBars size={1} />
-                            <LoaderText size={0.75}>
-                                {t('contractPage.loadingContracts')}
-                            </LoaderText>
-                        </ListLoadingWrapper>
-                        : null
-                }
+                <div ref={loadMoreRef} style={{ height: '20px' }} />
             </ContractsGroupWrapper>
         </ContractsPageWrapper>
     )

@@ -16,10 +16,10 @@ const defaultStorage: StoreDataModel = {
         latestTimeOfInstallSuggestion: 0,
     },
     entitiesListFetchLatestConfig: {
-        'ticket': { page: 1, perPage: 15, 'filter': null, sort: null },
-        'access': { page: 1, perPage: 15, 'filter': null, sort: null },
-        'contract': { page: 1, perPage: 15, 'filter': null, sort: null },
-        'notification': { page: 1, perPage: 15, 'filter': null, sort: null },
+        'ticket': { 'filter': null },
+        'access': { 'filter': null },
+        'contract': { 'filter': null },
+        'notification': { 'filter': null },
     }
 }
 

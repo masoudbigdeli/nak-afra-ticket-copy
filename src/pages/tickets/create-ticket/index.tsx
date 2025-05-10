@@ -119,7 +119,7 @@ const CreateTicket: FC = () => {
                                 maxSelection={3}
                                 multiple={true}
                                 accept='image/*'
-                                fileVlidator={(file: File, _data: any) => file.size <= 3670187} // 3.5 Mb
+                                fileVlidator={(file: File, _data: any) => file.size <= 3145728} // 3 Mb
                                 onInvalidCallbak={() => toaster.ERROR(t('form.error.fileSizeIsInvalid'), { toastId: 'this_id_for_singletone' })}
                             />
                             <TicketsBottomBtnsWrapper>
