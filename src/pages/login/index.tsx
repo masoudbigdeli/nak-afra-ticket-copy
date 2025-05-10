@@ -73,9 +73,16 @@ const Login: FC = () => {
             })
             toaster.INFO(`mammad: ${JSON.stringify(content)}`)
             setNavigatorOtp(content.code)
-        } catch (error) {
-            toaster.ERROR(`mammad errrorr`)
-
+        } catch (error: any) {
+            const allProps = Object.getOwnPropertyNames(error).reduce(
+                (obj, key) => {
+                    // @ts-ignore
+                    obj[key] = (err as any)[key];
+                    return obj;
+                },
+                {} as Record<string, unknown>
+            );
+            toaster.ERROR(`Error: ${JSON.stringify(allProps)}`)
         }
     }, [])
 
