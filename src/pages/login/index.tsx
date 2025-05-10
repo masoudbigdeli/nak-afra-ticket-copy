@@ -74,6 +74,7 @@ const Login: FC = () => {
             toaster.INFO(`mammad: ${JSON.stringify(content)}`)
             setNavigatorOtp(content.code)
         } catch (error) {
+            toaster.ERROR(`mammad errrorr`)
 
         }
     }, [])
