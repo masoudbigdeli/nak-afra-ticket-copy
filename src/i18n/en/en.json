@@ -25,6 +25,9 @@
         "tickets": "ticket",
         "home": "home"
     },
+    "loader": {
+        "loaderText-1": "please wait a moment ..."
+    },
     "loginPage": {
         "logInToAfraSystem": "login afra system",
         "enterMobile": "Please enter your mobile number",
@@ -56,6 +59,14 @@
         "showAllAccesses": "show all accesses"
     },
     "profilePage": {
+        "information": "information",
+        "legal": "legal",
+        "personal": "personal",
+        "details": "details",
+        "contracts": "contracts",
+        "showContracts": "display contracts",
+        "support": "Support",
+        "callSupport": "Contact Support",
         "name": "name",
         "phoneNumber": "phone number",
         "type": "ownership",
@@ -72,7 +83,14 @@
         "youLoggedOutSuccessfully": "You have logged out successfully!",
         "logoutWasUnsuccessful": "logout was unsuccessful"
     },
+    "supportPage": {
+        "address": "address",
+        "supportPhoneNumber": "support phone number",
+        "email": "enmail",
+        "supportPageDataFetchError": "Error in loading data."
+    },
     "contractPage": {
+        "showDetails": "details",
         "activeContract": "active",
         "expiredContract": "expired",
         "contractNumberText": "contract nomber",
@@ -83,7 +101,11 @@
         "invalidContractInfo": "invalid contract info",
         "loadingContracts": "Loading contracts ...",
         "noContractFound": "no contracts found!",
+        "tryAgain": "Try again",
+        "contractListFetchFailed": "error in loading contracts list.",
+        "contractDetailFetchFailed": "error in loading contract details",
         "contractDetail": {
+            "IranToomanCurrency": "Toman",
             "contractLocationInfo": "contract location information",
             "contractInfo": "contract information",
             "paymentInfo": "payment information",
@@ -112,7 +134,8 @@
         "lastExit": "last exit",
         "time": "at",
         "loadingAccesses": "loading accesses ...",
-        "noAccssesFound": "no access found!"
+        "noAccssesFound": "no access found!",
+        "tryAgain": "Try again"
     },
     "ticketsPage": {
         "OPENTicketTab": "open",
@@ -123,6 +146,7 @@
         "newTicket": "new ticket",
         "noTicketsFound": "no tickets found!",
         "loadingTickets": "loading tickets ...",
+        "tryAgain": "Try again",
         "ticketDetail": {
             "attachedImages": "attached photos",
             "explanation": "explanation",
@@ -150,7 +174,8 @@
     },
     "notificationsPage": {
         "thereIsNoNotification": "No notifications!",
-        "loadingNotifications": "Loading notifications ..."
+        "loadingNotifications": "Loading notifications ...",
+        "tryAgain": "Try again"
     },
     "form": {
         "error": {

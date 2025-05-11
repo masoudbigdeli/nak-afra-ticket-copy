@@ -89,7 +89,9 @@ const Tickets: FC = () => {
         getNextPageParam: (lastPage, allPages) => {
             if (!lastPage) return undefined
             return lastPage.hasMore ? allPages.length + 1 : undefined
-        }
+        },
+        staleTime: 1000 * 60 * 10,
+        gcTime: 1000 * 60 * 10,
     })
 
     useEffect(() => {
@@ -102,9 +104,6 @@ const Tickets: FC = () => {
         if (loadMoreRef.current) observer.observe(loadMoreRef.current)
         return () => observer.disconnect()
     }, [hasNextPage, fetchNextPage])
-
-
-    console.log('data ticket', data)
 
     return (
         <>
@@ -137,16 +136,17 @@ const Tickets: FC = () => {
                     }
                     {
                         isFetchNextPageError
-                            ? 'button'
-                            // ? <Button 
-                            //     title='again'
-                            //     size='S'
-                            //     hasIcon={true}
-                            //     iconName='attachment'
-                            //     loading={isLoading}
-                            //     disabled={true}
-
-                            //   />
+                            ? <Button
+                                type='FILLED'
+                                size='M'
+                                title={t('ticketsPage.tryAgain')}
+                                hasIcon={true}
+                                icon={Icon}
+                                iconName='refresh'
+                                loading={isLoading}
+                                disabled={false}
+                                onClick={() => fetchNextPage}
+                            />
                             : null
                     }
                     {

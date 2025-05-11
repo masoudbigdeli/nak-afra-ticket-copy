@@ -17,6 +17,8 @@ import useStore from '../../state-management/store'
 import { calculateFetchHasMore } from '../../utils/calculate-fetch-has-more'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import replaceChar1WithChar2 from '../../utils/replace-char1-with-char2'
+import Button from '../../components/button'
+import Icon from '../../components/icons/icon'
 
 const Contracts: FC = () => {
     const { t } = useTranslation()
@@ -87,7 +89,9 @@ const Contracts: FC = () => {
         getNextPageParam: (lastPage, allPages) => {
             if (!lastPage) return undefined
             return lastPage.hasMore ? allPages.length + 1 : undefined
-        }
+        },
+        staleTime: 1000 * 60 * 10,
+        gcTime: 1000 * 60 * 10,
     })
 
     useEffect(() => {
@@ -133,7 +137,17 @@ const Contracts: FC = () => {
                 }
                 {
                     isFetchNextPageError
-                        ? 'button'
+                        ? <Button
+                            type='FILLED'
+                            size='M'
+                            title={t('contractPage.tryAgain')}
+                            hasIcon={true}
+                            icon={Icon}
+                            iconName='refresh'
+                            loading={isLoading}
+                            disabled={false}
+                            onClick={() => fetchNextPage}
+                        />
                         : null
                 }
                 {

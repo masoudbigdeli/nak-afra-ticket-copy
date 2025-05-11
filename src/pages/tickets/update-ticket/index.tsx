@@ -23,6 +23,7 @@ import { ServerTicketDetailModel } from '../../../models/api-reponse/ticket'
 import { createOrUpdateTicketFormC2SMiddleware } from '../../../services-data-middleware/client-to-server/ticket'
 import PageError from '../../../components/page-error'
 
+
 export interface TicketUpdateModel {
     subject: string
     text: string

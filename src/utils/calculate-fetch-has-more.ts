@@ -3,7 +3,6 @@ export const calculateFetchHasMore = (
     perPage: number,
     currentPage: number
 ): boolean => {
-    console.log('+++++++++++++++++++++++>>>', total, perPage, currentPage)
     let countOfPages: number = Math.floor(total / perPage)
     let remaning: number = total - (countOfPages * perPage)
     if (remaning) {

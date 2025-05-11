@@ -12,24 +12,16 @@ import { LoaderBars } from '../../components/loading'
 import NoItem from '../../components/no-item'
 import { calculateFetchHasMore } from '../../utils/calculate-fetch-has-more'
 import { useInfiniteQuery } from '@tanstack/react-query'
+import Button from '../../components/button'
+import Icon from '../../components/icons/icon'
 
 const Notifications: FC = () => {
     const { t } = useTranslation()
     const { getEntity } = useCrudService()
-
-
     const loadMoreRef = useRef<HTMLDivElement | null>(null)
 
-
-
-
-
-
-
-
-
     const fetchNotifications = async (
-        { pageParam = 1 }: { pageParam?: number}
+        { pageParam = 1 }: { pageParam?: number }
     ) => {
         try {
 
@@ -37,7 +29,6 @@ const Notifications: FC = () => {
                 apiUri.notifications.uri(queryParamsGenerator(pageParam, 10)),
                 apiUri.notifications.permissions
             )
-
             return {
                 items: notificationListDataS2CMiddleware((res.data as any).data),
                 hasMore: calculateFetchHasMore((res.data as any).meta.total, (res.data as any).meta.per_page, (res.data as any).meta.current_page)
@@ -54,7 +45,9 @@ const Notifications: FC = () => {
         getNextPageParam: (lastPage, allPages) => {
             if (!lastPage) return undefined
             return lastPage.hasMore ? allPages.length + 1 : undefined
-        }
+        },
+        staleTime: 1000 * 60 * 10,
+        gcTime: 1000 * 60 * 10,
     })
 
     useEffect(() => {
@@ -68,14 +61,11 @@ const Notifications: FC = () => {
         return () => observer.disconnect()
     }, [hasNextPage, fetchNextPage])
 
-
-
-
     return (
         <PagesContainer data-scroll-key="true" style={{ overflowY: 'auto', }}>
             <NotificationsPageWrapper>
                 {
-                    data && data?.pages[0] !== undefined 
+                    data && data?.pages[0] !== undefined
                         ? data?.pages.map((page) =>
 
                             page?.items.map((item: any) => (
@@ -92,12 +82,21 @@ const Notifications: FC = () => {
                 }
                 {
                     isFetchNextPageError
-                        ? 'button'
+                        ? <Button
+                            type='FILLED'
+                            size='M'
+                            title={t('notificationsPage.tryAgain')}
+                            hasIcon={true}
+                            icon={Icon}
+                            iconName='refresh'
+                            loading={isLoading}
+                            disabled={false}
+                            onClick={() => fetchNextPage}
+                        />
                         : null
                 }
                 {
                     isLoading || isFetchingNextPage
-
                         ? <ListLoadingWrapper >
                             <LoaderBars size={1} />
                             <LoaderText size={0.75}>

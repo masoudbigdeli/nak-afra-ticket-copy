@@ -103,6 +103,7 @@
         "invalidContractInfo": "اطلاعات قرارداد معتبر نمی باشد",
         "loadingContracts": "در حال دریافت قراردادها ...",
         "noContractFound": "قراردادی یافت نشد!",
+        "tryAgain": "تلاش مجدد",
         "contractDetail": {
             "contractLocationInfo": "اطلاعات محل قرارداد",
             "contractInfo": "اطلاعات قرارداد",
@@ -133,7 +134,8 @@
         "lastExit": "آخرین خروج",
         "time": "ساعت",
         "loadingAccesses": "در حال دریافت مجوزها ...",
-        "noAccssesFound": "مجوزی یافت نشد!"
+        "noAccssesFound": "مجوزی یافت نشد!",
+        "tryAgain": "تلاش مجدد"
     },
     "ticketsPage": {
         "OPENTicketTab": "باز",
@@ -144,6 +146,7 @@
         "newTicket": "تیکت جدید",
         "noTicketsFound": "تیکتی یافت نشد!",
         "loadingTickets": "درحال دریافت تیکت ها...",
+        "tryAgain": "تلاش مجدد",
         "ticketDetail": {
             "attachedImages": "عکسهای ضمیمه",
             "explanation": "توضیحات",
@@ -171,7 +174,8 @@
     },
     "notificationsPage": {
         "thereIsNoNotification": "پیامی موجود نیست!",
-        "loadingNotifications": "در حال بارگذاری پیامها ..."
+        "loadingNotifications": "در حال بارگذاری پیامها ...",
+        "tryAgain": "تلاش مجدد"
     },
     "form": {
         "error": {
@@ -186,7 +190,6 @@
             "cancel": "انصراف",
             "exit": "خروج",
             "confirm": "تایید"
-
         }
     }
 }

@@ -1,5 +1,7 @@
 import { FC, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useQueryClient } from '@tanstack/react-query'
+import { useNavigate, useParams } from 'react-router-dom'
 import TicketDetailPageWrapper, { TicketDetailInfoWrapper, TicketDetailWrapper, TicketsBottomBtnsWrapper } from '../../../styles/pages/tickets/ticket-detail'
 import { ticketDetailDataS2CMiddleware } from '../../../services-data-middleware/server-to-client/ticket'
 import TicketDetailHeader from './header'
@@ -9,7 +11,6 @@ import BADGE_TYPE from '../../../enums/badge-type'
 import Icon from '../../../components/icons/icon'
 import TICKET_STATUS_TYPE from '../../../enums/ticket-status-type'
 import PATH_OF_ROUTES, { pathGenerator } from '../../../enums/path-of-routes'
-import { useNavigate, useParams } from 'react-router-dom'
 import Button from '../../../components/button'
 import useCrudService from '../../../services/crud-service'
 import apiUri from '../../../configs/api-uri'
@@ -23,6 +24,7 @@ import MODAL_TYPE from '../../../enums/modal-type'
 import ActionConfirmPopover from '../../../components/action-confirm-popover'
 import useStore from '../../../state-management/store'
 import StoreModel from '../../../models/store-model'
+import { scrollDataStorage } from '../../../App'
 
 const ticketDeletePopoverName = 'ticketDeletePopoverNameSelfClose'
 
@@ -30,6 +32,7 @@ const TicketDetail: FC = () => {
     const { t } = useTranslation()
     const { id } = useParams<{ id: string }>()
     const navigate = useNavigate()
+    const queryClient = useQueryClient()
     const { getEntity, deleteEntity } = useCrudService()
     const activePopoverName = useStore((store: StoreModel) => store.activePopoverName)
     const setActivePopoverName = useStore((store: StoreModel) => store.setActivePopoverName)
@@ -81,6 +84,13 @@ const TicketDetail: FC = () => {
             )
             toaster.SUCCESS(t('ticketsPage.ticketDetail.ticketDeletedSuccessfully'))
             setActivePopoverName(null)
+            queryClient.removeQueries({queryKey: ['tickets'], exact: false})
+            const keys : Array<string> = Object.keys(scrollDataStorage)
+            keys.forEach((key:string) => {
+                if(key.includes('tickets')) {
+                    scrollDataStorage[key] = 0
+                }
+            })
             navigate(PATH_OF_ROUTES.TICKETS)
         } catch {
             toaster.ERROR(t('ticketsPage.ticketDetail.deletingTicketWasUnsuccessfull'))

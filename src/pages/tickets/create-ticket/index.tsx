@@ -20,6 +20,8 @@ import apiUri from '../../../configs/api-uri'
 import convertArrayToObjectBySpecificKey from '../../../utils/convert-array-to-object-by-specific-key'
 import { createOrUpdateTicketFormC2SMiddleware } from '../../../services-data-middleware/client-to-server/ticket'
 import LoadingFullPage from '../../../components/loading'
+import { useQueryClient } from '@tanstack/react-query'
+import { scrollDataStorage } from '../../../App'
 
 export interface TicketCreateModel {
     subject: string
@@ -30,6 +32,7 @@ export interface TicketCreateModel {
 const CreateTicket: FC = () => {
     const { t } = useTranslation()
     const navigate = useNavigate()
+    const queryClient = useQueryClient()
     const { createEntity, uploadMultipleFile } = useCrudService()
 
     const formDefaultVelue: TicketCreateModel = {
@@ -67,6 +70,13 @@ const CreateTicket: FC = () => {
                 apiUri.ticketCreate.permissions,
                 createOrUpdateTicketFormC2SMiddleware(requestPayload)
             )
+            queryClient.removeQueries({ queryKey: ['tickets'], exact: false })
+            const keys: Array<string> = Object.keys(scrollDataStorage)
+            keys.forEach((key: string) => {
+                if (key.includes('tickets')) {
+                    scrollDataStorage[key] = 0
+                }
+            })
             navigate(PATH_OF_ROUTES.TICKETS)
         } catch (error) {
             toaster.ERROR(t('form.error.formNotValid'))

@@ -17,6 +17,8 @@ import useStore from '../../state-management/store'
 import StoreModel from '../../models/store-model'
 import PATH_OF_ROUTES from '../../enums/path-of-routes'
 import replaceChar1WithChar2 from '../../utils/replace-char1-with-char2'
+import Button from '../../components/button'
+import Icon from '../../components/icons/icon'
 
 
 const Accesses: FC = () => {
@@ -87,9 +89,12 @@ const Accesses: FC = () => {
         getNextPageParam: (lastPage, allPages) => {
             if (!lastPage) return undefined
             return lastPage.hasMore ? allPages.length + 1 : undefined
-        }
+
+        },
+        staleTime: 1000 * 60 * 10, 
+        gcTime: 1000 * 60 * 10,
     })
-console.log('accesssess: ', data)
+
     useEffect(() => {
         const observer = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && hasNextPage) {
@@ -100,8 +105,6 @@ console.log('accesssess: ', data)
         if (loadMoreRef.current) observer.observe(loadMoreRef.current)
         return () => observer.disconnect()
     }, [hasNextPage, fetchNextPage])
-
-
 
     return (
         <AccessesPageWrapper>
@@ -142,7 +145,17 @@ console.log('accesssess: ', data)
                 }
                 {
                     isFetchNextPageError
-                        ? 'button'
+                        ? <Button
+                            type='FILLED'
+                            size='M'
+                            title={t('accessesPage.tryAgain')}
+                            hasIcon={true}
+                            icon={Icon}
+                            iconName='refresh'
+                            loading={isLoading}
+                            disabled={false}
+                            onClick={() => fetchNextPage}
+                        />
                         : null
                 }
                 {

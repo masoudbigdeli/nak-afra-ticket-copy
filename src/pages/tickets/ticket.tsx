@@ -17,7 +17,6 @@ interface TicketProps {
 }
 
 const Ticket = ({ id, status, title, date, time }: TicketProps) => {
-    console.log('ticket id:', id)
     const { t } = useTranslation()
     const navigate = useNavigate()
     const redirectTo = useCallback((id: number) => navigate(pathGenerator.TICKET_DETAIL!(id.toString())), [pathGenerator])

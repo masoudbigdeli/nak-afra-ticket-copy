@@ -30,6 +30,7 @@ import Message from './icons-components/message'
 import ArrowLeftGreen from './icons-components/arrow-left-green'
 import ArrowLeftGery from './icons-components/arrow-left-grey'
 import ArrowDownGreen from './icons-components/arrow-down-green'
+import Refresh from './icons-components/refresh'
 
 const iconList = {
     triangleError: TriangleError,
@@ -64,6 +65,7 @@ const iconList = {
     arrowLeftGreen: ArrowLeftGreen,
     arrowLeftGery: ArrowLeftGery,
     arrowDownGreen: ArrowDownGreen,
+    refresh: Refresh
 }
 
 export default iconList
